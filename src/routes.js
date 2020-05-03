@@ -34,9 +34,12 @@ routes.post('/order', OrderController.store); // Cadastrar nova entrega
 
 routes.post('/files', upload.single('file'), FileController.store); // Upload de imagem
 
-routes.get('/deliveryman/:id/pendent', isDistributor, DeliveryController.index); // Mostra todas entregas que ainda devem ser feitas pelo entregador do ID solicitado
-routes.get('/deliveryman/:id/done', isDistributor, DeliveryController.show); // Mostra as entregas já realizadas pelo ID do entregador
-routes.put('/deliveryman/:orderid', DeliveryController.update); // Começar entrega
+routes.put('/delivery/:orderid', DeliveryController.update); // Motoboy começar entrega
+
+routes.get('/mydeliveries', isDistributor, DeliveryController.index); // Histórico de entregas do motoboy
+
+//
+
 routes.put(
   '/finishdelivery/:orderid',
   upload.single('file'),
@@ -45,9 +48,6 @@ routes.put(
 
 routes.put('/distributors/:id', isAdmin, DistributorController.update); // Atualizar entregador
 routes.delete('/distributors/:id', isAdmin, DistributorController.delete); // Remover entregador
-
-routes.put('/orders/:id', isAdmin, OrderController.update); // Atualizar dados entrega
-routes.delete('/orders/:id', isAdmin, OrderController.delete); // Remover entrega
 
 routes.put('/teste/:orderid', isDistributor);
 

@@ -1,30 +1,13 @@
-import { Op } from 'sequelize';
-import { startOfDay, endOfDay, parseISO } from 'date-fns';
 import Order from '../models/Order';
 
 class DeliveryController {
   async index(req, res) {
     const orders = await Order.findAll({
-      where: { distributor_id: req.params.id, done: false, canceled: false },
+      where: { distributor_id: req.userId },
     });
 
     if (orders.length === 0) {
-      return res.json({ error: 'No pendent deliveries found' });
-    }
-
-    return res.json(orders);
-  }
-
-  async show(req, res) {
-    const orders = await Order.findAll({
-      where: {
-        distributor_id: req.params.id,
-        done: true,
-      },
-    });
-
-    if (orders.length === 0) {
-      return res.json({ error: 'No completed deliveries found' });
+      return res.json({ error: 'Você ainda não realizou nenhuma entrega' });
     }
 
     return res.json(orders);
@@ -34,48 +17,26 @@ class DeliveryController {
     const order = await Order.findByPk(req.params.orderid);
 
     if (!order) {
-      return res.json({ error: 'Order not found, check if the id is correct' });
+      return res.json({
+        error: 'Número de entrega não localizado em nosso sistema',
+      });
+    }
+
+    if (req.userId !== order.distributor_id) {
+      return res.json({
+        error: 'Você só pode iniciar entregas atribuídas a você',
+      });
     }
 
     if (order.start_date !== null) {
-      return res
-        .status(401)
-        .json({ error: 'Delivery progress already started for this order' });
-    }
-
-    // Se for antes que 8am e depois que 6pm não pode começar entrega
-
-    const { start_date } = req.body;
-
-    const searchDate = parseISO(start_date);
-
-    const dayDeliveries = await Order.findAll({
-      where: {
-        distributor_id: order.distributor_id,
-        start_date: {
-          [Op.between]: [startOfDay(searchDate), endOfDay(searchDate)],
-        },
-      },
-    });
-
-    if (dayDeliveries.length >= 5) {
-      return res
-        .status(401)
-        .json({ error: 'You can only do five deliveries a day' });
-    }
-
-    const current_hour = new Date().getHours();
-
-    if (current_hour < 8 || current_hour > 18) {
-      order.start_date = new Date();
-    } else {
-      return res
-        .status(401)
-        .json({ error: 'You can only start a delivery between 8am and 18pm' });
+      return res.status(401).json({
+        error:
+          'Parece que você já iniciou o progresso de entrega para esse pedido',
+      });
     }
 
     await order.update({
-      start_date: new Date(),
+      start_date: Date.now(),
     });
 
     return res.json(order);
