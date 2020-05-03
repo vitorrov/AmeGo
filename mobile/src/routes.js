@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React, { useState } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-import Authentication from '@app/Pages/Authentication';
-import Logged from '@app/Routes/Logged';
+import Authentication from "@app/Pages/Authentication";
+import Logged from "@app/Routes/Logged";
 
 const Stack = createStackNavigator();
 
 export default function Routes() {
-  const [ isLoggedIn, setIsLoggedIn ] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode="none">

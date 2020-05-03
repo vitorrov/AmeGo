@@ -1,52 +1,142 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React, { useContext } from "react";
+import { ThemeContext } from "styled-components";
+import { StatusBar } from "react-native";
 
-import Feather from '@expo/vector-icons/Feather';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import Feather from "@expo/vector-icons/Feather";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
-
-import { FormContainer, Form, Input, Button } from './styles';
-
+import { FormContainer, Form, Input, Button } from "./styles";
 
 export default function Register() {
   const themeContext = useContext(ThemeContext).colors;
   return (
-    <FormContainer>
-      {/* Background Linear Gradient */}
-      <Form>
-        <Input 
-          label="E-mail"
-          icon={<Feather name="log-out" size={20} color={themeContext.secundary}/>}
-          inputProps={{
-            placeholder: "example@gmail.com",            
-            autoCompleteType: 'email',
-            keyboardType: "email-address",
-            textContentType: "emailAddress",
-            autoCorrect: true,
-          }}
-        />
-        <Input
-          label="CEP"
-          icon={<Feather name="map" size={20} color={themeContext.secundary}/>}
-          inputProps={{
-            placeholder: "12458965",
-          }}
-        />
-        <Input
-          label="Senha"
-          icon={<Ionicons name="ios-lock" size={20} color={themeContext.secundary}/>}
-          inputProps={{
-            placeholder: "*****",
-            textContentType: "password",
-            secureTextEntry: true,
-          }}
-        />
+    <>
+      <StatusBar
+        barStyle="dark-content"
+        // dark-content, light-content and default
+        hidden={false}
+        //To hide statusBar
+        backgroundColor="#00BCD4"
+        //Background color of statusBar
+        translucent={false}
+        //allowing light, but not detailed shapes
+        networkActivityIndicatorVisible={true}
+      />
+      <FormContainer
+        contentContainerStyle={{
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        bounces={false}
+      >
+        {/* Background Linear Gradient */}
+        <Form>
+          <Input
+            label="E-mail"
+            icon={
+              <Feather
+                name="log-out"
+                size={20}
+                color={themeContext.secundary}
+              />
+            }
+            inputProps={{
+              placeholder: "example@gmail.com",
+              autoCompleteType: "email",
+              keyboardType: "email-address",
+              textContentType: "emailAddress",
+              autoCorrect: true,
+            }}
+          />
 
-        <Button 
-          text="Cadastrar"
-          icon ={<Feather name="arrow-right" size={20} color={themeContext.background}/>}
-        />
-      </Form>
-    </FormContainer>
+          <Input
+            label="Senha"
+            icon={
+              <Ionicons
+                name="ios-lock"
+                size={20}
+                color={themeContext.secundary}
+              />
+            }
+            inputProps={{
+              placeholder: "*****",
+              textContentType: "password",
+              secureTextEntry: true,
+            }}
+          />
+
+          <Input
+            label="CEP"
+            icon={
+              <Feather name="map" size={20} color={themeContext.secundary} />
+            }
+            inputProps={{
+              placeholder: "12458965",
+            }}
+          />
+
+          <Input
+            label="Rua"
+            icon={
+              <Feather name="map" size={20} color={themeContext.secundary} />
+            }
+            inputProps={{
+              placeholder: "Rua Exemplo",
+            }}
+          />
+
+          <Input
+            label="Número"
+            icon={
+              <Feather name="map" size={20} color={themeContext.secundary} />
+            }
+            inputProps={{
+              placeholder: "444",
+            }}
+          />
+
+          <Input
+            label="Complemento"
+            icon={
+              <Feather name="map" size={20} color={themeContext.secundary} />
+            }
+            inputProps={{
+              placeholder: "Proximo ao prédio X",
+            }}
+          />
+
+          <Input
+            label="Estado"
+            icon={
+              <Feather name="map" size={20} color={themeContext.secundary} />
+            }
+            inputProps={{
+              placeholder: "SP",
+            }}
+          />
+
+          <Input
+            label="Cidade"
+            icon={
+              <Feather name="map" size={20} color={themeContext.secundary} />
+            }
+            inputProps={{
+              placeholder: "São Paulo",
+            }}
+          />
+
+          <Button
+            text="Cadastrar"
+            icon={
+              <Feather
+                name="arrow-right"
+                size={20}
+                color={themeContext.background}
+              />
+            }
+          />
+        </Form>
+      </FormContainer>
+    </>
   );
 }
