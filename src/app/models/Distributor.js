@@ -7,6 +7,7 @@ class Distributor extends Model {
       {
         name: Sequelize.STRING,
         cpf: Sequelize.STRING,
+        phone: Sequelize.STRING,
         email: Sequelize.STRING,
         password: Sequelize.VIRTUAL,
         password_hash: Sequelize.STRING,

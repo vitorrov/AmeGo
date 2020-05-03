@@ -1,6 +1,10 @@
 import * as Yup from 'yup';
 import User from '../models/User';
 
+const config = require('../../config/twilio');
+// eslint-disable-next-line import/order
+const client = require('twilio')(config.accountSid, config.authToken);
+
 class UserController {
   async store(req, res) {
     const schema = Yup.object().shape({
@@ -30,10 +34,17 @@ class UserController {
       return res.status(400).json({ error: 'Email já registrado' });
     }
 
-    const { name, email } = await User.create(req.body);
+    const { name, email, phone } = await User.create(req.body);
+    const [firstName] = name.split(' ');
+
+    await client.messages.create({
+      to: phone,
+      from: config.phoneNumber,
+      body: `Bem-vindo(a) à Ame Go, ${firstName}! Seu e-mail para acesso é ${email}`,
+    });
 
     return res.json({
-      success: `Bem-vindo(a) à Ame Go, ${name}! Seu e-mail para acesso é ${email}`,
+      success: `Bem-vindo(a) à Ame Go, ${firstName}! Seu e-mail para acesso é ${email}`,
     });
   }
 
