@@ -96,9 +96,9 @@ Then open the Expo app on your phone and scanned the QR code.
 
 ## Autores
 Carlos Miguel <a  href="https://www.linkedin.com/in/carlos-miguel-380413197" target="_blank" >	<img  alt="Linkedin-João Pedro"  src="https://img.shields.io/badge/Linkedin--%23F8952D?style=social&logo=linkedin">
-</a>
+</a><br/>
 João Pedro <a  href="https://www.linkedin.com/in/jaopedrofalcao" target="_blank" >	<img  alt="Linkedin-João Pedro"  src="https://img.shields.io/badge/Linkedin--%23F8952D?style=social&logo=linkedin">
-</a>
+</a><br/>
 Vitor  <a  href="https://www.linkedin.com/in/vitor-r-082550197" target="_blank" >	<img  alt="Linkedin-João Pedro"  src="https://img.shields.io/badge/Linkedin--%23F8952D?style=social&logo=linkedin">
 
 ## :memo: License
