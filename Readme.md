@@ -5,7 +5,7 @@
 </div>
 
 <h3  align="center" >
-Nossa ideia visa facilitar a compra de produtos de conveniência no meio digital. 
+Our idea is to facilitate the purchase of convenience products in the digital environment.
 </h3>
 <p  align="center">
 	<img  alt="Languagues"  src="https://img.shields.io/github/languages/count/vitorrov/amego">
@@ -32,8 +32,7 @@ Nossa ideia visa facilitar a compra de produtos de conveniência no meio digital
 
   
 ## Description
-Queremos ser vistos como a melhor opção de compra para produtos simples de conveniência, tanto pela facilidade e qualidade como pela entrega rápida e barata! Para isso, criamos um novo app, o AME Go: uma loja online para venda de produtos de conveniência com entrega rápida e de baixo custo, utilizando a estrutura física das lojas da LASA (Lojas Físicas Ame Go, Americanas Local, etc.) para realização de Ship from Store. Com este app, conseguimos integrar a distribuição geográfica das lojas da LASA com a presença online do grupo, criando um modelo de negócios único que consegue fornecer produtos de conveniência regularmente ao consumidor e integra praticamente toda estrutura do grupo: Ame Digital, Ame Flash, Ame Go, Lojas Americanas, B2W.
-
+We want to be seen as the best purchase option for simple convenience products, both for their ease and quality and for their fast and cheap delivery! For this, we created a new app, AME Go: an online store for the sale of convenience products with fast and low cost delivery, using the physical structure of LASA stores (Physical Stores Ame Go, Americanas Local, etc.) for Ship from Store. With this app, we were able to integrate the geographical distribution of LASA stores with the group's online presence, creating a unique business model that manages to regularly supply convenience products to consumers and integrates practically the entire structure of the group: Ame Digital, Ame Flash, Ame Go, Lojas Americanas, B2W.
 ## Demonstration
 
 <p  align="center">
