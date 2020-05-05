@@ -4,6 +4,7 @@ import { ThemeContext } from "styled-components";
 import Feather from "@expo/vector-icons/Feather";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
+import Text from '@components/Text';
 import { FormContainer, Form, Input, Button } from "./styles";
 
 export default function Login() {
@@ -43,15 +44,12 @@ export default function Login() {
           }}
         />
 
-        <Button
-          text="Entrar"
-          icon={
-            <Feather
-              name="arrow-right"
-              size={20}
-              color={themeContext.background}
-            />
-          }
+        <Button 
+          color={[themeContext.primary, themeContext.secundary]}
+          text={<Text align="center" text="Entrar" size={18} color={themeContext.background} />}
+          icon={<Feather name="arrow-right" size={20} color={themeContext.background}/>}
+          width="90%"
+          height="50px"
         />
       </Form>
     </FormContainer>

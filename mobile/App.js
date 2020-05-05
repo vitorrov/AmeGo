@@ -16,13 +16,23 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={theme ? theme : {}}>
-        <StatusBar hidden barStyle="light-content" backgroundColor="#7d40e7" />
+        <StatusBar 
+          // dark-content, light-content and default
+          barStyle="dark-content"
+          //To hide statusBar
+          hidden={false}
+          //Background color of statusBar
+          backgroundColor={theme.colors.background}
+          translucent={false}
+          //allowing light, but not detailed shapes
+          networkActivityIndicatorVisible={true}
+        />
         <Routes /> 
       </ThemeProvider>
     </SafeAreaProvider>
   );
 }
 
-console.disableYellowBox = false;
+console.disableYellowBox = true;
 
 AppRegistry.registerComponent(appName, () => App);

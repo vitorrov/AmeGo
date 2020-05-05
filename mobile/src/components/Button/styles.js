@@ -4,13 +4,14 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { rgba } from 'polished';
 
 export const Container = styled(LinearGradient).attrs(props => ({
-  colors:[props.theme.colors.primary, props.theme.colors.secundary],
+  colors: Array.isArray(props.color) ? props.color : [props.color, props.color],
   start: {x: 0.01, y: 0},
   end: {x: 1, y: 0}
 }))`
-  width: 90%;
-  height: 50px;
-  padding: 10px 20px 10px 20px;
+  width: ${props => props.width};
+  height: ${props => props.height};
+  padding: 10px 20px 10px 30px;
+  margin: 0;
   margin-top: 10px;
   margin-bottom: 50px;
 
